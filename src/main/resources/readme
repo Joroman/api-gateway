@@ -1,0 +1,32 @@
+#pom.xml
+I have to use
+this dependency :
+    <dependency>
+		<groupId>org.springframework.cloud</groupId>
+		<artifactId>spring-cloud-starter-gateway</artifactId>
+	</dependency>
+Instead:
+	<!--<dependency>
+		<groupId>org.springframework.cloud</groupId>
+		<artifactId>spring-cloud-starter-gateway-mvc</artifactId>
+	</dependency>-->
+
+
+#URL access service directly when:
+#spring.cloud.gateway.discovery.locator.enabled=true
+#spring.cloud.gateway.discovery.locator.lower-case-service-id=true
+http://localhost:8765/payment-card-service/payment/card
+http://localhost:8765/payment-card-service/payment/card/7
+
+
+#With new router configuration this are the urls no discover locator.
+http://localhost:8765/payment/card/7
+http://localhost:8765/myPayments/card/7
+
+#to know that the server is ok
+http://localhost:8765/actuator/health
+
+http://192.168.1.67:8765/actuator/health
+
+
+
